@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
+const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
   output: 'export',
@@ -7,8 +7,8 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-  basePath: isGithubActions ? '/for-sakshi' : '',
-  assetPrefix: isGithubActions ? '/for-sakshi/' : '',
+  basePath: isProd ? '/for-sakshi' : '',
+  assetPrefix: isProd ? '/for-sakshi/' : '',
 };
 
 export default nextConfig;
