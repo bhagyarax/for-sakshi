@@ -5,6 +5,15 @@
 // Every piece of text, photo assignment, song, and secret is here.
 // ============================================================
 
+export const BASE_PATH = process.env.NODE_ENV === 'production' ? '/for-sakshi' : '';
+
+export function getAssetPath(path: string): string {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${BASE_PATH}${cleanPath}`;
+}
+
 // ── PIN ─────────────────────────────────────────────────────
 // Secret PIN to unlock the website
 export const UNLOCK_PIN = '1436';
@@ -24,27 +33,27 @@ export const backgroundMusic = {
   title: 'Dooron Dooron',
   artist: 'Meghdeep Bose, Paresh Pahuja & Shiv',
   year: '2022',
-  src: '/audio/dooron-dooron.mp3', // Audio file served from public/audio/
+  src: getAssetPath('/audio/dooron-dooron.mp3'), // Audio file served from public/audio/
   spotifyUrl: 'https://open.spotify.com/search/Dooron%20Dooron%20Paresh%20Pahuja',
   youtubeUrl: 'https://www.youtube.com/results?search_query=Dooron+Dooron+Paresh+Pahuja+Meghdeep+Bose',
 };
 
 // ── PHOTOGRAPHS ─────────────────────────────────────────────
 export const photos = {
-  theSparkle:       { src: '/images/01-the-spark.jpg',         alt: 'The Sparkle — Us together' },
-  canteenTogether:  { src: '/images/01-canteen-together.jpg',  alt: 'Us at the canteen' },
-  cozySelfie:       { src: '/images/02-cozy-selfie.jpg',       alt: 'Cozy selfie together' },
-  coupleCloseup:    { src: '/images/01-the-spark.jpg',         alt: 'Our favorite moment together' },
-  kissMarks:        { src: '/images/04-kiss-marks.jpg',        alt: 'Fun with kiss mark filter' },
-  funnyFace:        { src: '/images/05-funny-face.jpg',        alt: 'Your cutest silly face' },
-  scenicViewpoint:  { src: '/images/06-scenic-viewpoint.jpg',  alt: 'At the viewpoint' },
-  sareCouple:       { src: '/images/07-saree-couple.jpg',      alt: 'Together in traditional' },
-  intimateSelfie:   { src: '/images/08-intimate-selfie.jpg',   alt: 'Close to you' },
-  flowerPortrait:   { src: '/images/09-flower-portrait.jpg',   alt: 'You with a flower' },
-  horseAdventure:   { src: '/images/10-horse-adventure.jpg',   alt: 'Adventure with horses' },
-  flowersBehindEar: { src: '/images/11-flowers-behind-ear.jpg',alt: 'Flowers in your hair' },
-  rustAnarkali:     { src: '/images/12-rust-anarkali.jpg',     alt: 'Elegant in rust' },
-  burgundyRestaurant:{ src: '/images/13-burgundy-restaurant.jpg',alt: 'Your brightest smile' },
+  theSparkle:       { src: getAssetPath('/images/01-the-spark.jpg'),         alt: 'The Sparkle — Us together' },
+  canteenTogether:  { src: getAssetPath('/images/01-canteen-together.jpg'),  alt: 'Us at the canteen' },
+  cozySelfie:       { src: getAssetPath('/images/02-cozy-selfie.jpg'),       alt: 'Cozy selfie together' },
+  coupleCloseup:    { src: getAssetPath('/images/01-the-spark.jpg'),         alt: 'Our favorite moment together' },
+  kissMarks:        { src: getAssetPath('/images/04-kiss-marks.jpg'),        alt: 'Fun with kiss mark filter' },
+  funnyFace:        { src: getAssetPath('/images/05-funny-face.jpg'),        alt: 'Your cutest silly face' },
+  scenicViewpoint:  { src: getAssetPath('/images/06-scenic-viewpoint.jpg'),  alt: 'At the viewpoint' },
+  sareCouple:       { src: getAssetPath('/images/07-saree-couple.jpg'),      alt: 'Together in traditional' },
+  intimateSelfie:   { src: getAssetPath('/images/08-intimate-selfie.jpg'),   alt: 'Close to you' },
+  flowerPortrait:   { src: getAssetPath('/images/09-flower-portrait.jpg'),   alt: 'You with a flower' },
+  horseAdventure:   { src: getAssetPath('/images/10-horse-adventure.jpg'),   alt: 'Adventure with horses' },
+  flowersBehindEar: { src: getAssetPath('/images/11-flowers-behind-ear.jpg'),alt: 'Flowers in your hair' },
+  rustAnarkali:     { src: getAssetPath('/images/12-rust-anarkali.jpg'),     alt: 'Elegant in rust' },
+  burgundyRestaurant:{ src: getAssetPath('/images/13-burgundy-restaurant.jpg'),alt: 'Your brightest smile' },
 } as const;
 
 // ── OPENING SEQUENCE ────────────────────────────────────────

@@ -17,6 +17,8 @@ import FinalScene from '@/components/FinalScene';
 import StoryProgressBar from '@/components/StoryProgressBar';
 import AmbientAudio from '@/components/AmbientAudio';
 
+import { getAssetPath } from '@/data/content';
+
 type Phase = 'loading' | 'opening' | 'unlock' | 'story';
 
 export default function Home() {
@@ -55,12 +57,12 @@ export default function Home() {
   // Preload all critical photographs
   useEffect(() => {
     const imagesToPreload = [
-      '/images/03-couple-closeup.jpg',
-      '/images/07-saree-couple.jpg',
-      '/images/01-canteen-together.jpg',
-      '/images/02-cozy-selfie.jpg',
-      '/images/13-burgundy-restaurant.jpg',
-      '/images/12-rust-anarkali.jpg',
+      getAssetPath('/images/01-the-spark.jpg'),
+      getAssetPath('/images/07-saree-couple.jpg'),
+      getAssetPath('/images/01-canteen-together.jpg'),
+      getAssetPath('/images/02-cozy-selfie.jpg'),
+      getAssetPath('/images/13-burgundy-restaurant.jpg'),
+      getAssetPath('/images/12-rust-anarkali.jpg'),
     ];
     imagesToPreload.forEach((src) => {
       const img = new Image();

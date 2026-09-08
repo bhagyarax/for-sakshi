@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getAssetPath } from '@/data/content';
 
 const YOUTUBE_VIDEO_ID = 'bP8ATWCvqzw';
 const START_SECONDS = 12; // Start from 0:12s as requested
@@ -175,8 +176,8 @@ export default function AmbientAudio({ autoStart = true }: AmbientAudioProps) {
         preload="auto"
         playsInline
       >
-        <source src="/audio/dooron-dooron.mp3" type="audio/mpeg" />
-        <source src="/audio/dooron-dooron.wav" type="audio/wav" />
+        <source src={getAssetPath('/audio/dooron-dooron.mp3')} type="audio/mpeg" />
+        <source src={getAssetPath('/audio/dooron-dooron.wav')} type="audio/wav" />
       </audio>
 
       {/* Luxury Glassmorphic Audio Player (Bottom Right) */}
